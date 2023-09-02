@@ -23,7 +23,7 @@ class KeyringInterface:
     def read_keyring(self, file_extension:str) -> None: 
         from glob import glob
 
-        self.keys = glob(ki.keyring_path + f'/*{file_extension}')
+        self.keys = glob(self.keyring_path + f'/*{file_extension}')
         
     def load_key(self, key_name:str, key_extension:str) -> str:
         with open(f'{self.keyring_path}/{key_name}{key_extension}', 'rb') as f: 
