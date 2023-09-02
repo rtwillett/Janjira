@@ -50,3 +50,18 @@ class CreateSymmetricKey:
     def create_symmetric_key_return(self):
         from cryptography.fernet import Fernet
         return Fernet.generate_key()
+
+
+
+
+def create_alphanumeric_token(n: int) -> str:
+    '''
+    Takes an integer and returns and alphanumeric string with length of that integer.
+    '''
+
+    import numpy as np
+    import string
+
+    big_rand_string = string.ascii_letters + string.digits
+    big_rand = [n for n in big_rand_string]
+    return ''.join(np.random.choice(big_rand, size = n))
